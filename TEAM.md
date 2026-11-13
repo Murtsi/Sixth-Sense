@@ -1,5 +1,7 @@
 # Team — Meta: AI Glasses
 
+> Planned responsibilities and M1–M7 contracts. No implementation or team acceptance of interface changes is implied by this documentation setup.
+
 Kolme henkilöä, kolme kaistaa, **ei päällekkäisyyksiä**. Jokaisella on oma ydintekniikka ja oma mitattava tulos — kukaan ei tee "vain frontin ja pitchin".
 
 ## Kuka tekee mitä

@@ -4,7 +4,7 @@
 
 ## Runtime shape
 
-Kaikki turvavaroituksiin liittyvä tapahtuu **puhelimessa ilman verkkoa**. Pilveä käytetään vain pyydettyyn kuvailuun.
+Tavoite: tilannevihjeiden käsittely **puhelimessa ilman verkkoyhteyttä**. Tämä ei ole toteutettu tai mitattu ominaisuus. Pilveä harkitaan vain erikseen pyydettyyn ja suostuttuun kuvailuun.
 
 ```mermaid
 flowchart LR
@@ -41,11 +41,11 @@ flowchart LR
 | Varoituspolitiikka | ≤ 5 ms | Puhdas funktio |
 | Puhe laseihin | ~150 ms | Valmiiksi syntetisoidut lyhyet sanat, ei TTS:ää lennosta |
 
-Kävelyvauhti ~1,2 m/s → 500 ms = 60 cm. Varoitus pitää antaa vähintään 2 m ennen estettä.
+Latenssibudjetti on suunnittelutavoite, ei turvallisuuden raja tai mitattu tulos. Monokulaarinen kuva ei yksin takaa luotettavaa metristä etäisyyttä. Älä lupaa tiettyä varoitusetäisyyttä tai vapaata reittiä.
 
 ## Havainnointi (B)
 
-1. **Tunnistus:** valmiiksi opetettu pieni malli (COCO: ihminen, polkupyörä, auto, tuoli, penkki…) + hienosäätö omilla luokilla: pylväs/tolppa, ovi, portaat ylös/alas, pään korkeuden este. Pieni oma merkitty aineisto riittää hienosäätöön.
+1. **Tunnistus:** valmiiksi opetettu pieni malli (COCO: ihminen, polkupyörä, auto, tuoli, penkki…) + hienosäätö omilla luokilla: pylväs/tolppa, ovi, portaat ylös/alas, pään korkeuden este. Oman merkityn aineiston riittävyys on selvitettävä; hienosäädön hyötyä ei oleteta.
 2. **Pään korkeus:** este, jonka alareuna on kuvassa horisontin yläpuolella ja joka kasvaa kohti keskikohtaa. Ei tarvitse metrisiä etäisyyksiä.
 3. **Syvyys:** monokulaarinen syvyysmalli (pieni) tai laatikon koko + kasvunopeus → *lähellä / keskellä / kaukana* ja *lähestyy / ei*. Ei metrejä, jos ne eivät ole luotettavia.
 4. **Reitti:** kuvan keskikaista ≈ kävelysuunta. Lasit liikkuvat pään mukana → tasoitus usean kuvan yli; kiihtyvyysanturi, jos DAT antaa sen.
@@ -76,3 +76,18 @@ glasses/
   describe/     C  kuvailu + kasvojen sumennus
   data/         B  merkityt klipit (ei kasvoja repoon)
 ```
+
+
+## Challenge alignment and implementation gates
+
+The supplied brief requires a functional prototype and deck, inclusive interaction, consent, safe data handling, permissions, errors, connectivity, performance trade-offs and device-state changes. See [CHALLENGE.md](CHALLENGE.md) and [docs/JUDGING.md](docs/JUDGING.md).
+
+No runtime or SDK has been selected. Validate video/still access, capture timestamps, audio routing, state events and offline operation with Meta before selecting iOS, Android or web. Do not assume a wearable's camera direction always equals walking direction.
+
+M1–M7 remain proposed contracts. Add explicit monotonic timestamps and a stale-frame/watchdog policy during contract review. Permission denied/revoked, disconnected, stale/obstructed input, low battery and unsupported hardware must produce distinct, accessible states where observable. State uncertainty remains visible; unsupported SDK events must be documented rather than simulated as device evidence.
+
+Configurable speech, repeat/mute, optional non-audio feedback and an accessible recovery path should be validated with intended users. Keep environmental audio available; do not promise hardware haptics or stereo until confirmed. Description output cannot be allowed to imply a guaranteed safe route.
+
+Cloud description is optional. Consent and local redaction must happen before any upload; face blur alone does not anonymise a scene. Fail closed for upload when consent or redaction is unavailable, and keep a local explanation/failure path. Consent-based development recordings belong in restricted storage with a retention/deletion plan, not public Git.
+
+Use controlled, sighted/supervised demonstrations and stationary soft-prop tests as described in [docs/DEMO.md](docs/DEMO.md). No blindfold navigation, traffic or stair trials relying on the prototype. Record latency, missed/false events, unavailable time and device mode without turning these into a mobility-safety guarantee.
