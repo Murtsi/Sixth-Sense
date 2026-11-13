@@ -1,0 +1,31 @@
+# Credentials and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials*.json
+service-account*.json
+secrets/
+# Private datasets, recordings, logs and exports
+data/raw/
+data/private/
+recordings/
+exports/
+*.har
+*.log
+*.mp4
+*.mov
+*.webm
+*.sqlite*
+*.dump
+# Local tooling
+.DS_Store
+Thumbs.db
+.idea/
+.venv/
+__pycache__/
+.pytest_cache/
+node_modules/
+dist/
+build/

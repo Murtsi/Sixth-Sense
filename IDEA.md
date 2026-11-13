@@ -1,5 +1,7 @@
 # Idea — Sixth Sense
 
+> Documentation-only concept. Device capabilities, models, user benefits and performance below are hypotheses or targets, not implemented or validated results. Source requirements: [CHALLENGE.md](CHALLENGE.md).
+
 Haaste: **Meta — AI Glasses for Everyone, Everyday**. Audio-first, DAT-mobiili-integraatio.
 
 ## One-liner
@@ -18,7 +20,7 @@ Sixth Sense kertoo näkövammaiselle kävelijälle äänellä tai värinällä e
 1. Lasien kamera lähettää kuvavirran puhelimeen (DAT).
 2. Puhelin tunnistaa paikallisesti esteet: ihmiset, pylväät, ovet, portaat, pään korkeuden esteet, ajoneuvot. Jokaiselle arvio etäisyydestä ja siitä, onko se **kulkureitillä**.
 3. Varoituspolitiikka päättää, sanotaanko jotain: vain lähestyvä este reitillä, tärkein ensin, ei toistoa. Oletuksena **hiljainen**.
-4. Ulostulo lasien kaiuttimesta lyhyenä sanana ja suuntana ("pää — oikealla — kaksi askelta") tai äänimerkkinä, ja/tai värinänä puhelimessa / kellossa.
+4. Ulostulo lasien kaiuttimesta lyhyenä sanana ja suuntana ("mahdollinen este — oikealla"; ei vahvistamatonta askel- tai etäisyysarviota) tai äänimerkkinä, ja/tai värinänä puhelimessa / kellossa.
 5. Pyydettäessä (ele tai ääni) pidempi kuvailu näkömallilta: "mitä edessä on?" — selvästi erotettuna turvavaroituksista.
 6. Kun järjestelmä ei näe (pimeä, sumea kuva, yhteys katki), se **sanoo sen ääneen**: "en näe nyt". Hiljaisuus ei koskaan tarkoita "reitti on vapaa".
 
@@ -47,11 +49,9 @@ Sixth Sense kertoo näkövammaiselle kävelijälle äänellä tai värinällä e
 
 ## Demo scenario
 
-1. Tuomari laittaa lasit päähän ja silmille unimaskin (tai tiimiläinen, jos laitteita ei saa tuomarille). Kädessä keppi.
-2. Kävellään rakennettu rata: ihminen tulee vastaan, pylväs, ovi, portaat alas.
-3. **Wow:** radalla on pään korkeudella oleva este (aukinainen kaapinovi / pahvilevy telineessä). Keppi menee alta, lasit sanovat "pää — suoraan — seis".
-4. Peitetään kamera kädellä → "en näe nyt". Katkaistaan Bluetooth → lasit/puhelin ilmoittavat yhteyskatkosta värinällä. Tilat hoidetaan näkyvästi, koska kriteerit vaativat sen.
-5. Ruudulla luvut: tunnistus- ja hälytystarkkuus omalla videoaineistolla, väärät hälytykset per minuutti, latenssi p50/p95.
+Katso [docs/DEMO.md](docs/DEMO.md). Demo tehdään hallitusti, näkevänä ja valvottuna pehmeillä rekvisiitoilla; ei unimaskirataa, portaita tai liikennettä. Näytä ensimmäisen persoonan näkymä, lyhyt vihje, epävarmuus sekä lupa- ja yhteysvirheistä palautuminen. Älä anna tuomarin tai käyttäjän tukeutua prototyyppiin liikkumisturvallisuudessa.
+
+Laitetila merkitään näkyviin: oikeat lasit, puhelinkamera tai tallennetoisto. Varapolku ei todista toimivaa lasi-integraatiota. Luvut näytetään vain mitattuina ja olosuhteet kerrotaan.
 
 ## Scope
 
@@ -97,4 +97,4 @@ Omalla nauhoitetulla ja käsin merkityllä aineistolla (eri tilat, valaistus, ih
 - **Väärät hälytykset per kävelyminuutti** (tavoite < 1).
 - **Latenssi** kamerasta ääneen, p50 ja p95 (tavoite p95 < 500 ms).
 - **"En näe" -tilan osuus** ajasta — rehellisyys ennen näennäistä tarkkuutta.
-- Käyttäjätesti: montako rataesteen osumaa ilman ja kanssa (unimaski + keppi), pieni otos, raportoidaan sellaisenaan.
+- Käyttäjäpalaute: ohjauksen saavutettavuus, vihjeiden ymmärrettävyys ja luottamus hallitussa tilanteessa suostumuksella. Ei törmäyskokeita tai unimaskilla mitattua turvallisuusväitettä.

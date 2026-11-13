@@ -2,7 +2,7 @@
 
 Kolme kaistaa, jokainen tekee **vain omia korttejaan** järjestyksessä ylhäältä alas. Omistajuus ja sopimukset (M1–M7): `TEAM.md`.
 Sizes: S ≈ 15 min, M ≈ 1 h, L ≈ half a day. `P0` = demo dies without it, `P1` = judges notice, `P2` = only if idle.
-Ajat suhteessa hackin alkuun (T+0). Idea-taso: kortit tarkennetaan, jos haaste valitaan.
+Ajat suhteessa hackin alkuun (T+0). Dokumentaatio valmis; kaikki toteutuskortit aloittamatta. Tarkennetaan Meta-tuen vahvistamien kyvykkyyksien jälkeen. Virallinen deadline on vielä vahvistamatta.
 
 ---
 
@@ -61,7 +61,7 @@ Ajat suhteessa hackin alkuun (T+0). Idea-taso: kortit tarkennetaan, jos haaste v
 | C-4 | T+10 → 12 | Kytkentä A:n ulostuloon | P0 | S | **Integraatio T+12** |
 | C-5 | T+12 → 18 | Väärät hälytykset / min B:n merkityillä klipeillä; kynnysten viritys opetusjoukolla | P0 | M | Luku `metrics.json`:iin B:n kautta |
 | C-6 | T+18 → 24 | Kuvailu: kasvojen sumennus paikallisesti → näkömalli (esim. Gemini) → lyhyt teksti; offline-varapolku | P1 | L | |
-| C-7 | T+24 → 30 | Käyttäjätesti: rata, unimaski + keppi, suostumuslomake, kirjataan osumat ilman/kanssa | P1 | L | **Integraatio T+28** |
+| C-7 | T+24 → 30 | Saavutettavuuspalaute suostumuksella: vihjeiden ymmärrettävyys, säädöt, virheestä palautuminen; hallittu ja valvottu demo ilman unimaskia | P1 | L | **Integraatio T+28** |
 | C-8 | T+30 → 36 | Onboarding äänellä: mitä tekee, mitä ei, hiljaisuus ≠ vapaa reitti | P0 | M | |
 | C-9 | T+36 → 40 | Pilottipolku deckiin: kenen kanssa, mitä mitataan, tietosuoja | P1 | M | |
 
@@ -69,4 +69,18 @@ Ajat suhteessa hackin alkuun (T+0). Idea-taso: kortit tarkennetaan, jos haaste v
 
 ## Blocked
 
-*(tyhjä)*
+| ID | Blocked on | Owner |
+|---|---|---|
+| PRE-1 / A-2 | Actual Meta device/API access and verified stream/output/state capabilities | Murtsi |
+| B-2 | Platform/runtime choice and representative consented or synthetic evaluation data | Niko |
+| C-7 | Consented participant feedback plan; no participant or partner confirmed | Joonas |
+
+## Challenge completion gates
+
+- [ ] Functional first-person prototype and deck, not just a phone mirror.
+- [ ] Camera permission denial/revocation, unavailable input, connectivity and device-state recovery shown.
+- [ ] Performance trade-offs and live-glasses/replay measurements labelled honestly.
+- [ ] Accessible onboarding, input, output and controls validated.
+- [ ] Consent, local/cloud processing, recording retention and deletion documented.
+- [ ] Plausible pilot hypothesis; no unconfirmed partnership claims.
+- [ ] Controlled demo and backup video prepared; deadline and formats verified.
